@@ -1,0 +1,42 @@
+
+Welcome Dear Reader, 
+
+    For this mini project i have added many notations with words JF// including one my standard process patterns in css i woulnt normally notate everywhere with personal notes i would tell you what the function is doing or why , why would i do this because we all forget
+    6months down the road what we wrote this way those few extra minutes writing notes save us a tonne of time down the road.
+
+    i this project though you have raw thoughts and some deadends left in to show you my thought patterns.
+    as ive built this in short time afterwork and in lunch 
+
+    Its been really inresting this being a older project presented some challenges i took for granted at first and went oh easy hahhhaaaa!!! well played
+    it was great as a refresher to remind me some of the luxuries ive become acustomed too in React/Next/Vue Etc.
+
+
+Installation
+-----------------------------
+    This Project Scope do i upgrade to Angular16? not 17(Just 4days old) better security plugins etc.. or do i leave as a legacy product something that would normally be descided by myself if manager or team choice depending on 
+    what we were doing with this project the norm would be upgrade for logevity however the sever may not be set 
+    up or it may be out of remit aka cost too much to upgrade personally i would upgrade better security and suport! but will depend on 
+    server dependancies and requirements.
+
+    Frontend
+    Jf// Using Tailwind as a Skeleton System Utility for responsive System if required & more + we can switch out components if needed in the future, 
+    main style sheet for contstants and reusable globals
+
+    ng serve --live-reload
+    ####
+
+
+Conclusion
+----------------------------------
+    What i would do if this was a live project i would animate page transitions and do automatic search but this would be dependant on 
+    project budget in this example i do not have a scope for that as much as i would love to go the whole hog
+    
+    The designer would need to be contacted as they would have either be in contact with the client or be in contact with UI Archetect. it really would boil down to 
+    what the MVP Spec is all boils aorund ROI.
+
+    Thankyou for reading i hope you enjoy the project.
+
+
+ Installation Guide
+ --------------------------------------------
+    ~ Cd to Drive > yarn/npm build if node_modules missing > ng serve > view project  JF.

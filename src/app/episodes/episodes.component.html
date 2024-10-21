@@ -1,0 +1,25 @@
+
+<div class=" container mx-auto lg:mx-auto max-w-5xl animate__animated animate__fadeInUp">
+    <div class="-m-1.5 overflow-x-auto">
+        <div class="p-1.5 min-w-full inline-block align-middle">
+            <div class="overflow-hidden">
+   
+            <table class="primary-table min-w-full divide-y no-hover">
+                <tbody *ngIf="episodesCall?.results">
+                    <tr *ngFor="let e of episodesCall.results.slice(0, 4)"><!--JF limit to 4 Rows -->
+                        <td>{{e.name}}</td>
+                        <td class="!text-right">{{e.episode}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+     </div>
+    </div>
+
+<div class="flex justify-center items-center mt-6">
+    <ng-container *ngIf="pages">
+        <span *ngFor="let p of pages" [ngClass]="{'active': (p===currentPage)}" class="cursor-pointer mx-2 pagnation" (click)="getEpisodes(p)">{{p}}</span>
+    </ng-container>
+</div>
+</div>

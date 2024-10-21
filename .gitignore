@@ -1,0 +1,33 @@
+# Jet Brains IDE directory
+.idea/
+.vscode/
+
+# Node modules directory
+node_modules/
+
+# Sass cache directory
+.sass-cache/
+
+# Compiled output
+tmp/
+dist/
+
+# e2e
+e2e/*.js
+e2e/*.map
+
+# Log files
+*.err
+*.log
+
+# OSX Desktop Service Store files
+.DS_Store
+
+# Test coverage
+coverage
+jest-cache
+test-results
+junit.xml
+
+migrations.json
+/.angular/

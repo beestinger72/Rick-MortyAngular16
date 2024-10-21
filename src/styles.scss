@@ -1,0 +1,794 @@
+
+///JF Notes: Now running tailwind as component based and levee postcss
+/// and seo benifts argubaly for demo purpospse skeleton.css and postcss on own would be quuicker to developer however im adding these in for future scope
+/// what if we wanted to work on this project and extend compnents fast hence selection of css framwork and componets have been left standard with overides 
+/// on so a future developer could swicth out componets of a diffrent libary in therey because custom class calls have been made on ie.tables the rick and morty system 
+/// would not be affected and the team dev can crack on with extending :) 
+
+
+/// 
+/// Utillities and External Calls
+/// 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.cdnfonts.com/css/sf-pro-display');
+@import '~animate.css/animate.min';
+
+
+///
+//JF Pallete for Global Calls
+///
+
+$fonts: 'SF Pro Display', Helvertica, Arial, sans-serif; // Fallbacks both one for Mac users one for Windows
+$primary-color: #fff;
+$secondary-color: #7B68EE;
+$secondary-color-hover: #5141ac;
+$body:#1E272E;
+$spacing: 2rem;
+
+
+///Note: Not used but normally you would pull this in from figma design
+$palette-grad: (
+    red: (600: #c6002b,
+        500: #cd212e,
+        400: #e22c3a,
+        300: #f4747c,
+        200: #f79096,
+        100: #f4adb1,
+    ),
+    blue: (600: #0055b7,
+        500: #509da7,
+        400: #30bac6,
+        300: #68c8d5,
+        200: #84dae5,
+        100: #a3e2eb,
+    ),
+    grey: (600: #27292d,
+        500: #3f4447,
+        400: #717277,
+        300: #a9afb2,
+        200: #e6eaed,
+        100: #f6f8f9,
+    ),
+);
+
+body {
+
+    background: $body;
+    color: $primary-color;
+
+}
+
+///
+/// Font and Text Calls
+/// 
+
+h1,h1,h3,h4,h5{   
+    font-family: $fonts;
+}
+
+.text-muted{
+    color: #ABAEB0;
+}
+.active {
+    color:#fff;
+}
+
+a{
+    color: #fff;
+    cursor: pointer;
+    transition: 0.1s ease-in-out;
+}
+a:hover, 
+.cursor-pointer:hover{
+    color: $secondary-color;
+     transition: 0.2s ease-in-out;
+}
+a:hover,
+.cursor-pointer:active {
+    color:$secondary-color;
+      transition: 0.2s ease-in-out;
+}
+
+
+.no-hover td{
+
+    color:inherit;
+    background:none !important;
+    cursor: default !important;
+
+
+}
+
+///
+/// Buttons 
+/// 
+/// 
+button {
+    background: $secondary-color;
+}
+button:hover {
+    background: $secondary-color-hover;
+}
+
+//Note: great for ClickUp not for this project
+// .glow-hover {
+//     border: none;
+//     background-color: $secondary-color;
+//     outline: none;
+//     color: #fff;
+//     width: 220px;
+//     height: 50px;
+//     cursor: pointer;
+//     position: relative;
+//     z-index: 0;
+//     border-radius: 10px;
+// }
+
+// .glow-hover:before {
+//     content: '';
+//     background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+//     position: absolute;
+//     top: -2px;
+//     left: -2px;
+//     background-size: 400%;
+//     z-index: -1;
+//     filter: blur(5px);
+//     width: calc(100% + 2px);
+//     height: calc(100% + 2px);
+//     animation: glowing 20s linear infinite;
+//     opacity: 0;
+//     transition: opacity .3s ease-in-out;
+//     border-radius: 10px;
+// }
+
+// .glow-hover:active {
+//     color: #000
+// }
+
+// .glow-hover:active:after {
+//     background: transparent;
+// }
+
+// .glow-hover:hover:before {
+//     opacity: 1;
+// }
+
+// .glow-hover:after {
+//     z-index: -1;
+//     content: '';
+//     position: absolute;
+//     background: #111;
+//     left: 0;
+//     top: 0;
+//     border-radius: 10px;
+//     width: 100%;
+//     height: 100%;
+// }
+
+// @keyframes glowing {
+//     0% {
+//         background-position: 0 0;
+//     }
+
+//     50% {
+//         background-position: 400% 0;
+//     }
+
+//     100% {
+//         background-position: 0 0;
+//     }
+// }
+
+/* Moema */
+.button {
+    float: left;
+    display: block;
+    border: none;
+    background: none;
+    color: inherit;
+    vertical-align: middle;
+    position: relative;
+    z-index: 1;
+    letter-spacing:1px;
+    -webkit-backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.button:focus {
+    outline: none;
+}
+
+.button>span {
+    vertical-align: middle;
+}
+.button--moema {
+    border-radius: 6px;
+    background: #7B68EE;
+    color: #fff;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 25px;
+    -webkit-transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.button--moema.button--inverted {
+    background: #ECEFF1;
+    color: #37474f;
+}
+
+.button--moema::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    bottom: -20px;
+    right: -20px;
+    background: inherit;
+    z-index: -1;
+    opacity: 0.4;
+    -webkit-transform: scale3d(0.8, 0.5, 1);
+    transform: scale3d(0.8, 0.5, 1);
+}
+
+.button--moema:hover {
+    -webkit-transition: background-color 0.1s 0.3s, color 0.1s 0.3s;
+    transition: background-color 0.1s 0.3s, color 0.1s 0.3s;
+    color: #ECEFF1;
+    background-color: #3f51b5;
+    -webkit-animation: anim-moema-1 0.3s forwards;
+    animation: anim-moema-1 0.3s forwards;
+}
+
+.button--moema.button--inverted:hover {
+    color: #ECEFF1;
+    background-color: #7986cb;
+}
+
+.button--moema:hover::before {
+    -webkit-animation: anim-moema-2 0.3s 0.3s forwards;
+    animation: anim-moema-2 0.3s 0.3s forwards;
+}
+
+@-webkit-keyframes anim-moema-1 {
+    60% {
+        -webkit-transform: scale3d(0.8, 0.8, 1);
+        transform: scale3d(0.8, 0.8, 1);
+    }
+
+    85% {
+        -webkit-transform: scale3d(1.1, 1.1, 1);
+        transform: scale3d(1.1, 1.1, 1);
+    }
+
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes anim-moema-1 {
+    60% {
+        -webkit-transform: scale3d(0.8, 0.8, 1);
+        transform: scale3d(0.8, 0.8, 1);
+    }
+
+    85% {
+        -webkit-transform: scale3d(1.1, 1.1, 1);
+        transform: scale3d(1.1, 1.1, 1);
+    }
+
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@-webkit-keyframes anim-moema-2 {
+    to {
+        opacity: 0;
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes anim-moema-2 {
+    to {
+        opacity: 0;
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+
+///
+///Brand & Header
+/// 
+.hero-image {
+    position: absolute;
+    left: 644px;
+    top: 10px;
+    overflow: visible;
+}
+
+.brand-logo {
+    color: #292d34;
+    text-align: left;
+    font: 700 64px/76px "SF Pro Text", sans-serif;
+    position: absolute;
+    left: calc(50% - 314.5px);
+    top: 121px;
+}
+
+///
+///Tabs
+/// 
+.tab-container .nav-link{
+
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+     /* 100% */
+}
+
+///
+/// Table Calls Notes:  
+///  Notes: global Convert Styles from Figma so they are exact for designer but need converting from there fills and some manual pollenation.
+/// 
+/// 
+.primary-table {
+    border-collapse: separate;
+    border-spacing: 0 0px;
+}
+
+.primary-table tr {
+    background: #2B343B;
+    border-radius: 3px;
+    filter: drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.11));
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+
+    
+}
+.primary-table tr td{
+        border-top: 1px solid #384047;
+        border-bottom:1px solid #384047;
+        padding-left: 20px;
+        padding-right: 20px;
+}
+
+.primary-table tr:hover {
+    background: #384047;
+    color: $secondary-color;
+}
+
+.primary-table td {
+    padding: 8px;
+    text-align: center;
+
+}
+
+.primary-table td:first-child {
+    border-radius: 3px 0 0 3px;
+    border-left: 1px solid #384047;
+    text-align: left;
+    padding-left:15px;
+    
+}
+
+.primary-table td:last-child {
+    border-radius: 0 3px 3px 0;
+    border-right: 1px solid #384047;
+}
+table tr td {
+
+    padding: 13px;
+
+}
+.table {
+    position: absolute;
+    inset: 0;
+}
+
+///
+/// Inputs/Forms Styles
+/// 
+input.input-search{
+    border-radius:5px !important;
+    color:#000 !important;
+    padding-top: 0.6rem !important;
+    padding-bottom: 0.6rem !important;
+        
+}
+input.input-search:focus {
+    border:1px soild $secondary-color !important
+    
+}
+
+///
+/// Cards
+///
+/// 
+.card{
+    background: #2B343B;
+    border: 1px solid #384047;
+    min-width: 620px;
+    text-align:center;
+    border-radius:15px;
+}
+.card img {
+    margin:auto;
+    padding:30px;
+    border-radius: 130px !important;
+}
+.card-title{
+
+    color: #FFF;
+    text-align: center;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 42px;
+}
+
+.card-subtitle{
+    text-align: center;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    margin-top:25px;
+    margin-bottom:40px;
+
+}
+
+///Pagnation
+/// 
+.pagnation.active {
+    color: $secondary-color;
+}
+
+
+///
+/// Page Calls
+/// 
+.characters-default,
+.characters-default * {
+    box-sizing: border-box;
+}
+
+.characters-default {
+    background: #ffffff;
+    width: 1537px;
+    height: 1598px;
+    position: relative;
+    overflow: hidden;
+}
+
+.rick-sanchez {
+    color: #ffffff;
+    text-align: left;
+    font: 400 16px/18px "SF Pro Text", sans-serif;
+    position: absolute;
+    left: 282.97px;
+    top: 514px;
+    width: 245.13px;
+    height: 18px;
+}
+
+.human {
+    color: #ffffff;
+    text-align: left;
+    font: 400 14px/18px "SF Pro Text", sans-serif;
+    position: absolute;
+    left: 868px;
+    top: 514px;
+    width: 98px;
+}
+
+.alive {
+    color: #ffffff;
+    text-align: left;
+    font: 400 14px/18px "SF Pro Text", sans-serif;
+    position: absolute;
+    left: 1024px;
+    top: 514px;
+    width: 68px;
+}
+
+.male {
+    color: #ffffff;
+    text-align: left;
+    font: 400 14px/18px "SF Pro Text", sans-serif;
+    position: absolute;
+    left: 1161px;
+    top: 514px;
+    width: 64px;
+}
+
+.group-3902 {
+    width: 1004px;
+    height: 40px;
+    position: static;
+}
+
+.rectangle-12662 {
+    border-radius: 0px;
+    position: absolute;
+    left: 266px;
+    top: 542px;
+    overflow: visible;
+}
+
+.morty-smith {
+    color: #7b68ee;
+    text-align: left;
+    font: 400 16px/18px "SF Pro Text", sans-serif;
+    position: absolute;
+    left: 282.97px;
+    top: 553px;
+    width: 176.14px;
+    height: 18px;
+}
+
+.human2 {
+    color: #7b68ee;
+    text-align: left;
+    font: 400 14px/18px "SF Pro Text", sans-serif;
+    position: absolute;
+    left: 868px;
+    top: 553px;
+    width: 98px;
+}
+
+.alive2 {
+    color: #7b68ee;
+    text-align: left;
+    font: 400 14px/18px "SF Pro Text", sans-serif;
+    position: absolute;
+    left: 1024px;
+    top: 553px;
+    width: 68px;
+}
+
+.male2 {
+    color: #7b68ee;
+    text-align: left;
+    font: 400 14px/18px "SF Pro Text", sans-serif;
+    position: absolute;
+    left: 1161px;
+    top: 553px;
+    width: 64px;
+}
+
+.summer-smith {
+    color: #ffffff;
+    text-align: left;
+    font: 400 16px/18px "SF Pro Text", sans-serif;
+    position: absolute;
+    left: 282.97px;
+    top: 592px;
+    width: 173.2px;
+    height: 18px;
+}
+
+.human3 {
+    color: #ffffff;
+    text-align: left;
+    font: 400 14px/18px "SF Pro Text", sans-serif;
+    position: absolute;
+    left: 868px;
+    top: 592px;
+    width: 98px;
+}
+
+.alive3 {
+    color: #ffffff;
+    text-align: left;
+    font: 400 14px/18px "SF Pro Text", sans-serif;
+    position: absolute;
+    left: 1024px;
+    top: 592px;
+    width: 68px;
+}
+
+.male3 {
+    color: #ffffff;
+    text-align: left;
+    font: 400 14px/18px "SF Pro Text", sans-serif;
+    position: absolute;
+    left: 1161px;
+    top: 592px;
+    width: 64px;
+}
+
+.beth-smith {
+    color: #ffffff;
+    text-align: left;
+    font: 400 16px/18px "SF Pro Text", sans-serif;
+    position: absolute;
+    left: 282.97px;
+    top: 631px;
+    width: 174.67px;
+    height: 18px;
+}
+
+.human4 {
+    color: #ffffff;
+    text-align: left;
+    font: 400 14px/18px "SF Pro Text", sans-serif;
+    position: absolute;
+    left: 868px;
+    top: 631px;
+    width: 98px;
+}
+
+.alive4 {
+    color: #ffffff;
+    text-align: left;
+    font: 400 14px/18px "SF Pro Text", sans-serif;
+    position: absolute;
+    left: 1024px;
+    top: 631px;
+    width: 68px;
+}
+
+.male4 {
+    color: #ffffff;
+    text-align: left;
+    font: 400 14px/18px "SF Pro Text", sans-serif;
+    position: absolute;
+    left: 1161px;
+    top: 631px;
+    width: 64px;
+}
+
+
+.abadango-cluster-princess {
+    color: #ffffff;
+    text-align: left;
+    font: 400 16px/18px "SF Pro Text", sans-serif;
+    position: absolute;
+    left: 283px;
+    top: 670px;
+    width: 245px;
+    height: 18px;
+}
+
+.alien {
+    color: #ffffff;
+    text-align: left;
+    font: 400 14px/18px "SF Pro Text", sans-serif;
+    position: absolute;
+    left: 868px;
+    top: 670px;
+    width: 98px;
+}
+
+.alive5 {
+    color: #ffffff;
+    text-align: left;
+    font: 400 14px/18px "SF Pro Text", sans-serif;
+    position: absolute;
+    left: 1024px;
+    top: 670px;
+    width: 68px;
+}
+
+.male5 {
+    color: #ffffff;
+    text-align: left;
+    font: 400 14px/18px "SF Pro Text", sans-serif;
+    position: absolute;
+    left: 1161px;
+    top: 670px;
+    width: 64px;
+}
+
+.characters {
+    color: #ffffff;
+    text-align: left;
+    font: 500 32px/32px "SF Pro Text", sans-serif;
+    position: absolute;
+    left: 550px;
+    top: 316px;
+}
+
+.episode-guide {
+    color: #abaeb0;
+    text-align: left;
+    font: 400 32px/32px "SF Pro Text", sans-serif;
+    position: absolute;
+    left: 768px;
+    top: 316px;
+}
+
+
+.search-by-name {
+    color: #7c828d;
+    text-align: left;
+    font: 400 16px/18px "SF Pro Text", sans-serif;
+    position: absolute;
+    left: 283px;
+    top: calc(50% - 367px);
+}
+
+.pages {
+    position: absolute;
+    inset: 0;
+}
+
+///
+/// Animation Calls
+///
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+    .fade-in {
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    .slide-in {
+        transform: translateX(-100%);
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .fade-in.show,
+    .slide-in.show {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    
+///
+/// Responsive Calls
+///
+/// 
+    /* Mobile styles */
+    @media (max-width: 768px) {
+        
+
+    .relative.container.mx-auto.lg\:mx-auto.max-w-5xl {
+        padding: 50px;
+        text-align: center;
+    }
+
+    .tab-container .nav-link {
+        padding: 0;
+        font-size: 22px;
+    }
+
+    .brand-logo {
+
+        font-size: 44px !important;
+        left:20%;
+        right:20%;
+        transform: translateY(-50%);
+        text-align: center;
+        line-height:normal
+    }
+    .card {
+
+        min-width: 100%;
+    }
+            
+    }

@@ -1,0 +1,24 @@
+
+<!-- Tinary Operators remeber react/Vue Etc --> 
+
+<div class="container mx-auto tab-container py-6 animate__animated animate__fadeInUp animate__delay-1s">
+    <div class="flex justify-center items-center">
+        <div class="p-4 text-center">
+            <a id="characters-nav" routerLink="/characters" [queryParams]="{ fromPage: characterPage, nameSearch: characterNameSearch }"
+                class="nav-link" routerLinkActive="active"
+                [ngClass]="{'text-white': isActive('/characters/*'), 
+                'text-muted': !isActive('/characters')}"> 
+                    <!-- '!text-red-700': isActive('/character/'+ characterPage +'?fromPage=1&nameSearch=')}"> -->
+                <!--JF only Single Calls on Tinary-->
+                Characters
+            </a>
+            <a id="episodes-nav" routerLink="/episodes"  routerLinkActive="active" class="nav-link ml-[47px]"
+                [ngClass]="{'text-white': isActive('/episodes'), 'text-muted': !isActive('/episodes')}">
+                Episode Guide
+            </a>
+                
+                <!--//doesnt suppport wildcards by looks of things in angular on routing  -->
+
+        </div>
+    </div>
+</div>
